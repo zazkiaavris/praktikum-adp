@@ -1,4 +1,4 @@
-angka_pertama=int(input("masukkan angka pertama :"))
+angka_pertama= int(input("masukkan angka pertama :"))
 angka_kedua = int(input("masukkan angka kedua :"))
 print("pilihan operasi")
 print("1. penjumlahan")
@@ -26,4 +26,6 @@ while perhitungan :
             print(f"{hasil}")
     else :
         print("pilihan operasi tidak valid = keluar")
-    perhitungan = False
+    break
+perhitungan = False
+   
