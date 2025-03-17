@@ -1,6 +1,6 @@
-print((" ")+"*kalkulator sederhana* ")
+print((" ")+"*kalkulator sederhana*")
 perhitungan = True
-while perhitungan >= 0:
+while perhitungan>=0 :
     angka_pertama= int(input("masukkan angka pertama :"))
     angka_kedua = int(input("masukkan angka kedua :"))
     print("pilihan operasi")
@@ -12,19 +12,19 @@ while perhitungan >= 0:
     nomor_pilihan= int(input("masukkan nomor pilihan operasi (1/2/3/4/5):"))
     if nomor_pilihan == 1 :
         hasil= angka_pertama + angka_kedua
-        print(f"{hasil}")
+        print(f"hasilnya untuk penjumlahan adalah :{hasil}")
     elif nomor_pilihan == 2 :
         hasil = angka_pertama - angka_kedua
-        print(f"{hasil}")
+        print(f"hasilnya untuk pengurangan adalah :{hasil}")
     elif nomor_pilihan == 3:
         hasil = angka_pertama*angka_kedua
-        print(f"{hasil}")
+        print(f"hasilnya untuk perkalian adalah:{hasil}")
     elif nomor_pilihan == 4:
         if angka_kedua == 0 :
                 print("tidak valid")
         else :
             hasil = angka_pertama / angka_kedua 
-            print(f"{hasil}")
+            print(f"hasilnya untuk pembagian adalah: {hasil}")
     else :
          print("pilihan operasi tidak valid = keluar")
     lakukan_perulangan = input("lakukan perulangan (yes/no):")
