@@ -4,7 +4,7 @@ perhitungan = 5
 while perhitungan >= 0:
     angka_pertama= int(input("masukkan angka pertama :"))
     angka_kedua = int(input("masukkan angka kedua :"))
-    print("pilihan operintrasi")
+    print("pilihan operasi")
     print("1. penjumlahan")
     print("2. pengurangan")
     print("3. perkalian")
