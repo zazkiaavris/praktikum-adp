@@ -1,6 +1,5 @@
 print((" ")+"*kalkulator sederhana* ")
 perhitungan = True
-perhitungan = 5
 while perhitungan >= 0:
     angka_pertama= int(input("masukkan angka pertama :"))
     angka_kedua = int(input("masukkan angka kedua :"))
