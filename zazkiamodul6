@@ -1,0 +1,18 @@
+titik = []
+
+print("Masukkan tiga buah titik :")
+
+for i in range(3):
+    print("Untuk titik ke-", i+1)
+    x = int(input("Masukkan nilai x: "))
+    y = int(input("Masukkan nilai y: "))
+    titik.append([x, y])  
+
+sisi1 = (titik[0][0] - titik[1][0])**2 + (titik[0][1] - titik[1][1])**2
+sisi2 = (titik[1][0] - titik[2][0])**2 + (titik[1][1] - titik[2][1])**2
+sisi3 = (titik[0][0] - titik[2][0])**2 + (titik[0][1] - titik[2][1])**2
+
+if sisi1 == sisi2 or sisi2 == sisi3 or sisi1 == sisi3:
+    print("Ketiga titik tersebut membentuk segitiga sama kaki")
+else:
+    print("Ketiga titik tersebut tidak membentuk segitiga sama kaki")
