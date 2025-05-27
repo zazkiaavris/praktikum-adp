@@ -1,0 +1,110 @@
+def tampilkan_menu():
+    print("MENU")
+    print("1. Tabel perkalian modulo n")
+    print("2. Mencari nilai sigma x")
+    print("3. Mencari nilai n!")
+    print("4. Total dan rata-rata suatu data")
+    print("5. Keluar")
+
+def tabel_modulo():
+    n = int(input("Masukkan nilai n (1-10): "))
+    while n <= 0 or n > 10:
+        print("Nilai tidak valid. Harus antara 1 dan 10.")
+        n = int(input("Masukkan lagi nilai n (1-10): "))
+
+    print("Tabel Perkalian Modulo", n)
+    print("      ", end="")
+    
+    i = 0
+    while i < n:
+        if i < 10:
+            print(" ", i, end=" ")
+        else:
+            print(i, end=" ")
+        i += 1
+    print()
+
+    i = 0
+    while i < n:
+        if i < 10:
+            print(" ", i, "|", end=" ")
+        else:
+            print(i, "|", end=" ")
+
+        j = 0
+        while j < n:
+            hasil = (i * j) % n
+            if hasil < 10:
+                print(" ", hasil, end=" ")
+            else:
+                print(hasil, end=" ")
+            j += 1
+
+        print()
+        i += 1
+
+def sigma_x():
+    batas_bawah = int(input("Batas bawah: "))
+    batas_atas = int(input("Batas atas: "))
+    while batas_atas < batas_bawah:
+        print("Batas atas harus lebih besar atau sama dengan batas bawah.")
+        batas_bawah = int(input("Batas bawah: "))
+        batas_atas = int(input("Batas atas: "))
+
+    total = 0
+    for x in range(batas_bawah, batas_atas + 1):
+        total += x
+    print(f"Jumlah sigma x dari {batas_bawah} sampai {batas_atas} adalah {total}")
+
+def faktorial_rekursif(n):
+    if n == 0:
+        return 1
+    else:
+        return n * faktorial_rekursif(n - 1)
+
+def faktorial():
+    n = int(input("Masukkan nilai n ≥ 0: "))
+    while n < 0:
+        print("n harus ≥ 0")
+        n = int(input("Masukkan nilai n ≥ 0: "))
+
+    hasil = faktorial_rekursif(n)
+    print(f"{n}! = {hasil}")
+
+def total_dan_rata2():
+    jumlah = int(input("Masukkan banyak data: "))
+    while jumlah <= 0:
+        print("Jumlah data harus lebih dari 0.")
+        jumlah = int(input("Masukkan banyak data: "))
+
+    data = []
+    for i in range(jumlah):
+        nilai = int(input(f"Data ke-{i+1}: "))
+        data.append(nilai)
+
+    total = 0
+    for x in data:
+        total += x
+
+    rata2 = total / jumlah
+    print(f"Total semua data = {total}")
+    print(f"Rata-rata ={rata2}")
+
+def gabungan():
+    pilihan = 0
+    while pilihan != 5:
+        tampilkan_menu()
+        pilihan = int(input("Pilih menu (1-5): "))
+        if pilihan == 1:
+            tabel_modulo()
+        elif pilihan == 2:
+            sigma_x()
+        elif pilihan == 3:
+            faktorial()
+        elif pilihan == 4:
+            total_dan_rata2()
+        elif pilihan == 5:
+            print("keluar")
+        else:
+            print("pilihan tidak valid.silahkan ulangi")
+gabungan()
