@@ -1,0 +1,65 @@
+praktikan = {
+    '241001': ['Zahra', 80, 85, 90],
+    '241002': ['Sonil', 75, 78, 70],
+    '241003': ['Aisyah', 90, 88, 92],
+    '241004': ['Emil', 60, 65, 70],
+    '241005': ['Adel', 85, 80, 75],
+    '241006': ['Kevin', 70, 72, 68],
+    '241007': ['Christy', 88, 90, 85],
+    '241008': ['Cokro', 65, 60, 70],
+    '241009': ['Kheisya', 95, 92, 90],
+    '241010': ['Faras', 78, 80, 82]
+}
+
+def hitung_nilai_akhir(pretest, postest, tugas):
+    nilai = (0.35 * pretest) + (0.35 * postest) + (0.30 * tugas)
+    return nilai
+
+nilai_akhir = {}
+
+for nim in praktikan:
+    nama = praktikan[nim][0]
+    pretest = praktikan[nim][1]
+    postest = praktikan[nim][2]
+    tugas = praktikan[nim][3]
+
+    total = hitung_nilai_akhir(pretest, postest, tugas)
+    nilai_akhir[nim] = [nama, total]
+
+file = open("data_nilai_akhir.txt", "w")
+for nim in nilai_akhir:
+    nama = nilai_akhir[nim][0]
+    total = nilai_akhir[nim][1]
+    file.write("{} {} {:.2f}".format(nim, nama, total))  
+file.close()
+
+jumlah = 0
+total_semua = 0
+for nim in nilai_akhir:
+    total_semua += nilai_akhir[nim][1]
+    jumlah += 1
+
+rata_rata = total_semua / jumlah
+
+maks = minn = None
+nim_maks = nim_min = None
+
+for nim, (nama, pre, post, tugas) in praktikan.items():
+    nilai = hitung_nilai_akhir(pre, post, tugas)
+    
+    if maks is None or nilai > maks:
+        maks = nilai
+        nim_maks = nim
+    if minn is None or nilai < minn:
+        minn = nilai
+        nim_min = nim
+
+bawah_rata = 0
+for nim in nilai_akhir:
+    if nilai_akhir[nim][1] < rata_rata:
+        bawah_rata += 1
+
+print("Rata-rata nilai akhir:", rata_rata)
+print("Nilai tertinggi:", maks, "(", nilai_akhir[nim_maks][0], ")")
+print("Nilai terendah:", minn, "(", nilai_akhir[nim_min][0], ")")
+print("Jumlah praktikan yang nilainya di bawah rata-rata:", bawah_rata)
