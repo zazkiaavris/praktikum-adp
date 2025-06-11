@@ -1,0 +1,18 @@
+import time
+import os
+from termcolor import colored
+
+pesan = "   happy eid   "
+lebar = 40
+total_langkah = 20
+delay = 0.5
+
+pesan_panjang = pesan * 5
+warna_list = ['yellow', 'green', 'blue', 'magenta']
+
+for i in range(total_langkah):
+    os.system('cls')  
+    potongan = pesan_panjang[i:i+lebar]
+    warna = warna_list[i % len(warna_list)]
+    print(colored(potongan, warna))
+    time.sleep(delay)
